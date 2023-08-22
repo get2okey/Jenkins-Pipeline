@@ -7,18 +7,18 @@ pipeline {
             steps{
                 echo "Building ..."
             }
-            post{
-                success {
-                    mail to: "get2okey@gmail.com",
-                    subject: "Build Status Email",
-                    body: "Build was successful!"
-                }
-            }
         }
         stage('Test'){
             steps{
                 echo "Unit tests"
                 echo "Integration tests"
+            }
+            post{
+                success {
+                    mail to: "get2okey@gmail.com",
+                    subject: "Test Status Email",
+                    body: "Test was successful!"
+                }
             }
         }
         stage('Code Analysis'){
@@ -29,6 +29,13 @@ pipeline {
         stage('Security Scan'){
             steps{
                 echo "Security Scannning"
+            }
+            post{
+                success {
+                    mail to: "get2okey@gmail.com",
+                    subject: "Security Scan Status Email",
+                    body: "Security scan was successful!"
+                }
             }
         }
         stage('Deploy to Staging'){
