@@ -16,7 +16,7 @@ pipeline {
             post{
                 success {
                     emailext attachLog: true, attachmentsPattern: 'generatedLogFile.txt',
-                    mail to: "get2okey@gmail.com",
+                    to: "get2okey@gmail.com",
                     subject: "Test Status Email",
                     body: "Test was successful!"
                 }
@@ -34,7 +34,7 @@ pipeline {
             post{
                 success {
                     emailext attachLog: true, attachmentsPattern: 'generatedLogFile.txt',
-                    mail to: "get2okey@gmail.com",
+                    to: "get2okey@gmail.com",
                     subject: "Security Scan Status Email",
                     body: "Security scan was successful!"
                 }
